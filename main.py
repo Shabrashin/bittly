@@ -5,7 +5,6 @@ from urllib.parse import urlparse
 import requests
 from dotenv import load_dotenv
 
-#BITLY_TOKEN = "773afc058d5b86cb716ccbe43bed7126a92a49ba"
 
 def shorten_link(token, url):
     headers = {"Authorization": f"Bearer {token}"}
