@@ -41,17 +41,14 @@ def is_bitlink(token, url):
 if __name__ == "__main__":
     load_dotenv()
     parser = argparse.ArgumentParser()
-    parser.add_argument('--link', help='Введите ссылку')
-    parser.add_argument('--token', help='Введите токен')
+    parser.add_argument('link', help='Введите ссылку')
     args = parser.parse_args()
     user_input = args.link
-    os.environ["BITLY_TOKEN"] = args.token
 
     bitly_token = os.getenv("BITLY_TOKEN")
 
-    test = requests.get(user_input)
-    test.raise_for_status
-    
+    requests.get(user_input).raise_for_status
+
     if is_bitlink(bitly_token, user_input):
         print(f"Количество переходов по ссылке битли: {count_clicks(bitly_token, user_input)}")
     else:
