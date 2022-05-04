@@ -31,7 +31,6 @@ def count_clicks(token, url):
 
 def is_bitlink(token, url):
     parsed = urlparse(url)
-    # bitlink = parsed[1] + parsed[2]
     bitlink = parsed.netloc + parsed.path
     headers = {"Authorization": f"Bearer {token}"}
     
